@@ -1,0 +1,55 @@
+.body-full{
+  background: linear-gradient(45deg, #596b83 0%, #babebd 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 900px;
+}
+.innolevels{
+  font-size: 30px;
+  color: #FFFFFF;
+  font-family: 'Montserrat';
+  margin: 60px;
+}
+
+
+
+/* Grid */
+.grid {
+	display: grid;
+  width: 800px;
+	margin: 10px;
+}
+
+.item-1 {
+	grid-area: item-1;
+  background-color: blue;
+  margin: 5px;
+  color: #FFFFFF;
+	text-align: center;
+	font-size: 1.5em;
+}
+.item-2 {
+	grid-area: item-2;
+  margin: 5px;
+  color: #FFFFFF;
+	background: linear-gradient(to right, blue , red);
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.item-3 {
+	grid-area: item-3;
+  margin: 5px;
+  background-image: url(http://www.innolevels.com.br/wp-content/uploads/2015/12/logo-retina-grande-jan-2015.png);
+  background-size: 400px 200px;
+	text-align: center;
+	font-size: 1.5em;
+}
+.grid-template-areas-4 {
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 200px 200px;
+	grid-template-areas:
+		"item-1 item-2"
+		"item-1 item-3";
+}

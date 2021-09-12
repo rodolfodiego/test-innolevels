@@ -1,0 +1,98 @@
+.body-full{
+  background: linear-gradient(45deg, #596b83 0%, #babebd 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.innolevels{
+  font-size: 30px;
+  color: #FFFFFF;
+  font-family: 'Montserrat';
+  margin: 60px auto 60px auto;
+
+}
+
+.movie-details{
+  display: flex;
+  flex-direction: column;
+}
+.movie-details span{
+  background-color: #FFFFFF;
+  color: black;
+  border:none;
+  margin: 15px;
+  border-radius: 20px;
+  font-size: 15px;
+  height: auto;
+  padding: 10px;
+  width: 100%;
+}
+.description-movie{
+  color: black;
+  border:none;
+  border-radius: 20px;
+  padding: 5px;
+  width: 95%;
+  margin: 10px auto;
+}
+.cards-movies{
+  display: flex;
+  justify-content: space-around;
+}
+.card-movies{
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: #e8eaed;
+  border-radius: 15px;
+
+}
+.image-poster img{
+  width: 90%;
+  height: 80%;
+  border-radius: 15px;
+  margin: 20px auto;
+}
+.btn-register{
+  display: flex;
+  justify-content: space-between;
+}
+.btns-options{
+  display: flex;
+  justify-content: space-between;
+}
+.btns-options button{
+  width: 70px;
+  color: #FFFFFF;
+  font-size: 12px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 10px;
+}
+
+
+
+@media (max-width: 780px) {
+  .btn-register{
+    flex-direction: column;
+  }
+  .btn-register button{
+    margin-bottom: 20px;
+  }
+  .movie-details span{
+    width: 90%;
+  }
+  .innolevels{
+    font-size: 22px;
+  }
+
+  .image-poster img{
+    width: 98%;
+  }
+  .card-movies{
+    width: 95% !important;
+  }
+  .description-movie{
+    width: 95%;
+    margin: auto;
+  }
+}

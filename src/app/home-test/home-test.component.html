@@ -1,0 +1,167 @@
+<div class="body-full" [ngStyle]="{'height':!test ? '1000px' : 'auto' }">
+  <div class="container">
+    <div class="innolevels">
+      <span>Processo Seletivo - Innolevels</span>
+    </div>
+    <div class="btn-register">
+      <button type="button" class="btn btn-primary" routerLink="/gridcss">Grid CSS3</button>
+      <button (click)="registerMovie()"  type="button" class="btn btn-primary" >
+        Cadastrar filme
+      </button>
+      <div class="col-md-4 mb-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Bucar filme</span>
+          </div>
+          <input type="text" class="form-control" (keyup)="searchMovie($event.target.value)">
+        </div>
+      </div>
+    </div>
+
+    <div >
+      <div class="row cards-movies" >
+        <div class="col-md-5 card-movies" *ngFor="let item of listMovies" >
+          <div class="row">
+            <div class="col-md-6 movie-details" >
+              <span ><b>Título:</b> {{item.title}}</span>
+              <span ><b>Ano:</b> {{item.year}}</span>
+              <span ><b>Diretor:</b> {{item.directors}}</span>
+              <span ><b>Gênero:</b> {{item.genre}}</span>
+              <div class="btns-options">
+                <button (click)="modalEditMovie(item)"  style="background-color: rgb(162, 184, 184);">+ Detalhes</button>
+                <button (click)="modalEditMovie(item)"  style=" background-color: rgb(155, 136, 108);">Editar</button>
+                <button (click)="modalDeleteMovie(item)"  style="background-color: rgb(230, 21, 21);">Deletar</button>
+              </div>
+            </div>
+            <div class="col-md-6 image-poster">
+              <img [src]="item.urlMoviePoster ? item.urlMoviePoster: url">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 description-movie">
+              <label ><b>Descrição:</b> {{item.description}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--------Modal Registro/Edição de Filme--------------->
+<div #movieModal class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header badge-primary">
+        <h5 *ngIf="editMovie"  class="modal-title" id="addEmailModalLabel">Editar filme</h5>
+        <h5 *ngIf="!editMovie" class="modal-title" id="addEmailModalLabel">Casdastrar filme</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clearForm()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formMovie">
+          <div class="row">
+            <div class="col-md-3">
+              <label for="name">Numero do filme</label>
+              <input type="number" class="form-control" id="number" formControlName="number">
+            </div>
+            <div class="col-md-3">
+              <label for="email">Tipo produto</label>
+              <select class="form-select" aria-label="Default select example" id="typeProduct" formControlName="typeProduct">
+                <option *ngFor="let item of typePodruct" >{{item}}</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="name">Tipo Filme</label>
+              <select class="form-select" aria-label="Default select example" id="typeMovie" formControlName="typeMovie">
+                <option *ngFor="let item of typeMovie" >{{item}}</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="email">Gênero</label>
+              <select class="form-select" aria-label="Default select example" id="genre" formControlName="genre">
+                <option *ngFor="let item of genreMovie" >{{item}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="name">Título do Filme</label>
+              <input type="text" class="form-control" id="title" formControlName="title">
+            </div>
+            <div class="col-md-6">
+              <label for="email">Principais atores</label>
+              <input type="text" class="form-control" id="actors" formControlName="actors">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="name">Principais diretores</label>
+              <input type="text" class="form-control" id="directors" formControlName="directors">
+            </div>
+            <div class="col-md-6">
+              <label for="email">Fornecedor</label>
+              <input type="text" class="form-control" id="provider" formControlName="provider">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="name">Ano lançamento</label>
+              <input type="text" class="form-control" id="year" formControlName="year">
+            </div>
+            <div class="col-md-6">
+              <label for="email">Descrição</label>
+              <textarea type="text" class="form-control" id="description" formControlName="description"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="name">Tipo de idioma</label>
+              <input type="text" class="form-control" id="language" formControlName="language" >
+            </div>
+            <div class="col-md-3">
+              <label for="email">Valor locação</label>
+              <input type="number" class="form-control" id="value" formControlName="value" >
+            </div>
+            <div class="col-md-3">
+              <label for="email">Data Cadastro</label>
+              <input class="form-control" type="date" id="dateregister" formControlName="dateRegister">
+            </div>
+          </div><div class="row">
+            <div class="col-md-8">
+              <label for="name">URL poster do filme</label>
+              <input type="url" class="form-control" id="urlMoviePoster" formControlName="urlMoviePoster" >
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="clearForm()" data-bs-dismiss="modal" >Cancelar</button>
+        <button type="button" class="btn btn-warning" (click)="clearForm()"  >Limpar tudo</button>
+        <button type="button" class="btn btn-primary" (click)="sendRegisterMovie()" >Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!--------Modal exclusão de Filme--------------->
+  <div #deleteMovieModal class="modal fade" id="deleteMovieModal" tabindex="-1" role="dialog"
+    aria-labelledby="deleteMovieModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteMovieModalLabel">Deletar filme</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clearForm()"></button>
+        </div>
+        <div class="modal-body">
+          <label *ngIf="movieToDelete"  for="message-text" class="col-form-label">Certeza da exclusão do filme <b>{{movieToDelete.title}}</b>?</label>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close" (click)="clearForm()">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="deleteMovie()" data-dismiss="modal">Deletar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Spinner de load-->
+<div class="spinner" *ngIf="showSpinner"></div>
