@@ -35,3 +35,4 @@ Abra um novo terminal na pasta "test-innolevels" do projeto após a instalação
 ```php
 ng serve 
 ```
+A aplicação irá subir na porta padrão http://localhost:4200.
