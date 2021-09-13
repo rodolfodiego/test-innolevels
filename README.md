@@ -17,12 +17,27 @@ Para instalar o Angular CLI, abra uma janela de terminal e execute o seguinte co
 npm install -g @angular/cli
 ```
 
-Abra um novo terminal na pasta "test-innolevels" do projeto após a instalação do NodeJs e o Angular Cli, instale as dependências da aplicação:
+Certifique-se que tenha permissão de admim para toda instalção via comando!
+
+Você precisará do Git Bash para o versionamento de código.
+Os downloads estão disponíveis aqui: [Instalador](https://git-scm.com/downloads/)
+
+Abra um novo terminal em uma pasta de sua escolha e faça o clone do projeto:
+
+```php
+git clone https://github.com/rodolfodiego/test-innolevels
+```
+
+Abra um novo terminal na pasta "test-innolevels" do projeto após a instalação do NodeJs e o Angular Cli e instale as dependências da aplicação:
 
 ```php
 npm install
 ```
+Abra um novo terminal na pasta "test-innolevels" do projeto após a instalação das depednêcias do projetoe e instale o json-server:
 
+```php
+npm install -g json-server
+```
 Abra um novo terminal na pasta "test-innolevels" do projeto após a instalação das depednêcias do projeto, rode a simulação da API REST com JSON Server:
 
 ```php

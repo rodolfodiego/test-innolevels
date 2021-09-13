@@ -1,4 +1,4 @@
-<div class="body-full" [ngStyle]="{'height':!test ? '1000px' : 'auto' }">
+<div class="body-full" [ngStyle]="{'height':!emptyList ? '1000px' : 'auto' }">
   <div class="container">
     <div class="innolevels">
       <span>Processo Seletivo - Innolevels</span>
@@ -19,19 +19,20 @@
     </div>
 
     <div >
-      <div class="row cards-movies" >
+      <div *ngIf="movieNotFound" class="movie-not-found"><span>Filme não encontrado!</span></div>
+      <div class="row cards-movies" *ngIf="!movieNotFound" >
         <div class="col-md-5 card-movies" *ngFor="let item of listMovies" >
           <div class="row">
             <div class="col-md-6 movie-details" >
-              <span ><b>Título:</b> {{item.title}}</span>
-              <span ><b>Ano:</b> {{item.year}}</span>
-              <span ><b>Diretor:</b> {{item.directors}}</span>
-              <span ><b>Gênero:</b> {{item.genre}}</span>
               <div class="btns-options">
                 <button (click)="modalEditMovie(item)"  style="background-color: rgb(162, 184, 184);">+ Detalhes</button>
                 <button (click)="modalEditMovie(item)"  style=" background-color: rgb(155, 136, 108);">Editar</button>
                 <button (click)="modalDeleteMovie(item)"  style="background-color: rgb(230, 21, 21);">Deletar</button>
               </div>
+              <span ><b>Título:</b> {{item.title}}</span>
+              <span ><b>Ano:</b> {{item.year}}</span>
+              <span ><b>Diretor:</b> {{item.directors}}</span>
+              <span ><b>Gênero:</b> {{item.genre}}</span>
             </div>
             <div class="col-md-6 image-poster">
               <img [src]="item.urlMoviePoster ? item.urlMoviePoster: url">

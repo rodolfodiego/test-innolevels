@@ -18,7 +18,8 @@ export class HomeTestComponent implements OnInit {
   formMovie: FormGroup;
   showSpinner = false;
   editMovie = false;
-  test = false;
+  emptyList = false;
+  movieNotFound = false;
   idMomivoToEdite: any;
   movieToDelete: any;
   typePodruct = [
@@ -70,8 +71,10 @@ export class HomeTestComponent implements OnInit {
     this.showSpinner = true;
     this.mainservice.getListMovies().subscribe(res => {
       this.listMovies = res;
+      this.movieNotFound = false;
+
       if (this.listMovies.length > 2){
-        this.test = true;
+        this.emptyList = true;
       }
       this.showSpinner = false;
     },
@@ -90,14 +93,22 @@ export class HomeTestComponent implements OnInit {
 
         if (this.listMovies[i].title.match(characters)) {
           listMovies.push(this.listMovies[i]);
+          this.movieNotFound = false;
         }else if (this.listMovies[i].year.match(characters)){
           listMovies.push(this.listMovies[i]);
+          this.movieNotFound = false;
         }else if (this.listMovies[i].directors.match(characters)){
           listMovies.push(this.listMovies[i]);
+          this.movieNotFound = false;
         }else if (this.listMovies[i].genre.match(characters)){
           listMovies.push(this.listMovies[i]);
+          this.movieNotFound = false;
         }else if (this.listMovies[i].description.match(characters)){
           listMovies.push(this.listMovies[i]);
+          this.movieNotFound = false;
+        }else{
+          this.emptyList = false;
+          this.movieNotFound = true;
         }
       }
       this.listMovies = listMovies;
