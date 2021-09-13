@@ -17,20 +17,20 @@ Para instalar o Angular CLI, abra uma janela de terminal e execute o seguinte co
 npm install -g @angular/cli
 ```
 
-Na pasta "test-innolevels" do projeto após a instalação do NodeJs e o Angular Cli, instale as dependências da aplicação:
+Abra um novo terminal na pasta "test-innolevels" do projeto após a instalação do NodeJs e o Angular Cli, instale as dependências da aplicação:
 
 ```php
 npm install
 ```
 
-Na pasta "test-innolevels" do projeto após a instalação das depednêcias do projeto, rode a simulação da API REST com JSON Server:
+Abra um novo terminal na pasta "test-innolevels" do projeto após a instalação das depednêcias do projeto, rode a simulação da API REST com JSON Server:
 
 ```php
 json-server --watch FILMES.json
 ```
 Certifique-se se o JSON Server subiu na porta padrão http://localhost:3000.
 
-Na pasta "test-innolevels" do projeto após a instalação de subir o JSON Server, rode a aplicação usando o comando:
+Abra um novo terminal na pasta "test-innolevels" do projeto após a instalação de subir o JSON Server, rode a aplicação usando o comando:
 
 ```php
 ng serve 
