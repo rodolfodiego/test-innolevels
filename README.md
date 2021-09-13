@@ -17,7 +17,7 @@ Para instalar o Angular CLI, abra uma janela de terminal e execute o seguinte co
 npm install -g @angular/cli
 ```
 
-Certifique-se que tenha permissão de admim para toda instalção via comando!
+Certifique-se que tenha permissão de admim para toda instalação via terminal!
 
 Você precisará do Git Bash para o versionamento de código.
 Os downloads estão disponíveis aqui: [Instalador](https://git-scm.com/downloads/)
